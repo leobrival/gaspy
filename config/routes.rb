@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end 
   resources :basket_items, only: [:update, :delete]
   resources :relay_points
-  # get 'profile', to: 'pages#profile', as: :profile
+  # get 'dashboard', to: 'pages#dashboard', as: :dashboard
 end

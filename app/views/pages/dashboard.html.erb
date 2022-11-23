@@ -1,0 +1,34 @@
+<h1><%= current_user.full_name %></h1>
+
+<h2>Mon panier en cours</h2>
+<% if @current_basket %>
+  <p>Vous avez <%= @current_basket.basket_item.count %> articles dans votre panier</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @current_basket.basket_items.each do |basket_item| %>
+      <tr>
+        <td><%= basket_item.product.name %></td>
+        <td>x<%= basket_item.quantity %></td>
+        <td><%= basket_item.price %> €</td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>
+
+<% if @finished_baskets %>
+  <ul>
+    <% @finished_baskets.each do |basket| %>
+      <li>
+        <%= basket.basket_items.count %> products in this old basket
+      </li>    
+    <% end %>
+  </ul>
+<% end %>

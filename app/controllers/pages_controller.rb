@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   def home
   end
 
-  # def profile
-  #   @baskets = current_user.baskets
-  # end
+  def dashboard
+    @current_basket = current_user.current_basket
+    @finished_baskets = current_user.baskets.all_finished
+  end
 end
