@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product_id, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -11,8 +11,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to product_path(@product)
+    if @product.save
+      redirect_to product_path(@product)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -22,13 +25,19 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update(product_params)
-    redirect_to product_path(@product)
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @product.destroy
-    redirect_to products_path, status: :see_other
+    if @product.destroy
+      redirect_to products_path, status: :see_other
+    else
+      redirect_to products_path, flash[:error] = "Le produit n'a pas pu etre supprimé: #{@product.errors.full_messages.join(', ')}"
+    end
   end
 
   private
@@ -37,7 +46,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :pricing, :quantity, :category, :photo)
   end
 
-  def set_product_id
+  def set_product
     @product = Product.find(params[:id])
   end
 end
