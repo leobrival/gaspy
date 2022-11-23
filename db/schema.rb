@@ -54,8 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_195755) do
 
   create_table "baskets", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "relay_point_id", null: false
-    t.string "basket_status"
+    t.bigint "relay_point_id"
+    t.string "basket_status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["relay_point_id"], name: "index_baskets_on_relay_point_id"

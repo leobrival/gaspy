@@ -2,9 +2,10 @@ class BasketItemsController < ApplicationController
   before_action :set_basket_item, only: [:update, :destroy]
 
   def create
+    product = Product.find(params[:product_id])
     @basket_item = BasketItem.new(basket_item_params)
     @basket_item.basket = current_user.current_basket
-    @basket_item.product = Product.find(params[:product_id])
+    @basket_item.product = product
     @basket_item.save
     redirect_to products_path #vérifier la page de retour
   end
@@ -28,5 +29,4 @@ class BasketItemsController < ApplicationController
   def set_basket_item
     @basket_item = BasketItem.find(params[:id])
   end
-
 end

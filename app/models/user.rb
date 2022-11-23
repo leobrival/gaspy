@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :baskets
 
   def current_basket
-    baskets.all_pending.last
+    baskets.all_pending.last || Basket.create(user: self)
   end
 
   def full_name
