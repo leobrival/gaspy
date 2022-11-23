@@ -1,7 +1,15 @@
 <h1>Products#show</h1>
 <p>Find me in app/views/products/show.html.erb</p>
-<%= @product.name %>
-<%= @product.description %>
-<%= @product.pricing %>
-<%= @product.quantity %>
-<%= @product.category %>
+<div>
+    <%= @product.name %>
+    <%= @product.description %>
+    <%= @product.pricing %>
+    <%= @product.quantity %>
+    <%= @product.category %>
+
+    <%= simple_form_for([@product, @basket_item]) do |f| %>
+        <%= f.input :quantity %>
+        <%= f.submit 'Ajouter au pannier' %>
+    <% end %>
+
+</div>

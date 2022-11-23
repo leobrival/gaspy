@@ -86,6 +86,21 @@ relay_point2.save!
 
 # TABLE USERS
 user = User.new
+user.first_name = "Brice"
+user.last_name = "Moulin"
+user.civility = "Mr"
+user.email = "test@test.com"
+user.address = "10 route de Balata-97200 Fort de France-Martinique"
+user.zip_code = "97200"
+user.city = "Fort de France"
+user.country = "MArtinique"
+user.phone = "06 98 22 97 93"
+user.password = "123456"
+
+user.save!
+
+
+user = User.new
 user.first_name = "Léo"
 user.last_name = "Matrix"
 user.civility = "Mr"
@@ -129,7 +144,7 @@ user3.save!
 basket = Basket.new
 basket.relay_point_id = 1
 basket.user_id = 1
-basket.basket_status = "true"
+basket.basket_status = "pending"
 basket.save!
 
 # TABLE BASKET ITEMS

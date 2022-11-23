@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @basket_item = BasketItem.new
   end
 
   def edit
