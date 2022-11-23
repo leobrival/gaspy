@@ -3,7 +3,7 @@ class Basket < ApplicationRecord
   
   belongs_to :user
   belongs_to :relay_point, optional: true
-  has_many :basket_items
+  has_many :basket_items, dependent: :destroy
   has_many :products, through: :basket_items
 
   validates :basket_status, inclusion: { in: STATUSES }

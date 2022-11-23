@@ -1,2 +1,13 @@
 <h1>RelayPoints#new</h1>
 <p>Find me in app/views/relay_points/new.html.erb</p>
+<%= simple_form_for @relay_point do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :zip_code %>
+  <%= f.input :city %>
+  <%= f.input :country, as: :string %>
+  <%= f.input :phone %>
+  <%= f.input :email %>
+  <%= f.submit %>
+<% end %>
