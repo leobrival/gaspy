@@ -153,4 +153,3 @@ basket_item.product_id = 1
 basket_item.basket_id = 1
 basket_item.quantity = 2
 basket_item.save!
-
