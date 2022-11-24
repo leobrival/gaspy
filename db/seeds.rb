@@ -144,7 +144,6 @@ user3.save!
 basket = Basket.new
 basket.relay_point_id = 1
 basket.user_id = 1
-basket.basket_status = "pending"
 basket.save!
 
 # TABLE BASKET ITEMS
@@ -153,4 +152,3 @@ basket_item.product_id = 1
 basket_item.basket_id = 1
 basket_item.quantity = 2
 basket_item.save!
-
