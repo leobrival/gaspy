@@ -16,6 +16,9 @@ class BasketsController < ApplicationController
   end
 
   def show
+    @basket_items = @basket.basket_items
+    @products = @basket.products
+    @basket_items_by_category = @basket.basket_items.includes(:product).group_by { |bi| bi.product.category }
   end
 
   def edit
@@ -34,7 +37,7 @@ class BasketsController < ApplicationController
   private
 
   def basket_params
-    params.require(:basket).permit(:name, :description)
+    params.require(:basket).permit(:name, :description,)
   end
 
   def set_basket

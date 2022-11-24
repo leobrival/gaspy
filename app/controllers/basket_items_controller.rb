@@ -21,7 +21,6 @@ class BasketItemsController < ApplicationController
   end
 
   private
-
   def basket_item_params
     params.require(:basket_item).permit(:quantity)
   end
