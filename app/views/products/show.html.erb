@@ -1,15 +1,49 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
-<div>
-    <%= @product.name %>
-    <%= @product.description %>
-    <%= @product.pricing %>
-    <%= @product.quantity %>
-    <%= @product.category %>
 
-    <%= simple_form_for([@product, @basket_item]) do |f| %>
-        <%= f.input :quantity %>
-        <%= f.submit 'Ajouter au pannier' %>
-    <% end %>
+
+<div class="container my-5 border shadow">
+  <%= link_to products_path do %>
+    <span><i class="fa-solid fa-arrow-left-long"></i> Retourner à l'accueil</span>
+  <% end %>
+
+      <div class=" strong my-3">
+        <%= @product.category %>
+      </div>
+
+  <div class="row">
+
+    <div class="box_image shadow col-6">
+      <%= cl_image_tag @product.photo.key, class: "image_main rounded" %>
+    </div>
+
+    <div class="col-6 ">
+
+      <div class= "size-text">
+        <strong> <%= @product.name %></strong>
+      </div>
+
+      <div class="color_price my-2">
+        <strong> <p> <%= @product.pricing%> €</p></strong>
+      </div>
+
+      <div class="my-3">
+        <p> <strong>description:</strong>  <br><%= @product.description %></p>
+      </div>
+
+      <div class="my-3">
+        <p> <strong> quantité disponible:</strong> <%= @product.quantity %></p>
+      </div>
+
+
+      <div class="form" >
+        <strong>Quantité</strong>
+        <%= simple_form_for([@product, @basket_item], html: { class:"d-flex"}) do |f| %>
+          <%= f.input :quantity, label: false,
+                      wrapper_html: { class: 'me-2'},
+                      input_html: { style: 'width: 120px;', min: 0, max: @product.quantity } %>
+          <%= f.submit 'Ajouter au pannier', class: "btn btn-primary mb-3" %>
+        <% end %>
+    </div>
+
+    </div>
 
 </div>
