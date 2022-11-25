@@ -1,22 +1,60 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="calcul-tarif"
 export default class extends Controller {
-  connect() {
-    console.log("Hello Brice")
+  static targets = ["input", "moins", "plus", "fullPrice"]
+  static values = {
+    unitPrice: Number,
+    productQuantity: Number,
+    updateUrl: String
   }
 
-  calculTarif(){
-    const nbProduct = document.querySelector(".table__line--qte").value
-    console.log(nbProduct)
-    const moTarif = document.querySelector(".table__line--tarif").value
-    console.log(moTarif)
-    const moTotal = document.querySelector(".table__line--tot")
+  calculTarifMoins(){
+    if (this.inputTarget.value <= 1) return
 
-    const resulte = nbProduct * moTarif
-    console.log(resulte)
-    moTotal.innerText = resulte
-    // this.element.innerText = 10
-    // console.log(this.element.innerText)
+    this.inputTarget.value--
+    this.majTarif()
   }
+
+  calculTarifPlus(){
+    console.log(this.inputTarget.value)
+    if (this.inputTarget.value >= this.productQuantityValue) return
+
+    this.inputTarget.value++
+    this.majTarif()
+  }
+
+  majTarif() {
+    const newPrice = this.inputTarget.value * this.unitPriceValue
+    this.fullPriceTarget.innerHTML = newPrice
+    this.#updateBasketItemQuantity()
+  }
+
+  #updateBasketItemQuantity() {
+    const data = new FormData()
+    data.append('basket_item[quantity]', this.inputTarget.value)
+    const url = this.updateUrlValue
+    const options = {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+      },
+      body: data
+    }
+
+    fetch(url, options)
+      .then(response => response.json())
+      .then((data) => {
+        if (data.errors) {
+          window.alert(data.errors)
+        } else {
+          this.#updateBasketTotalPrice(data.basket_price)
+        }
+      })
+  }
+
+  #updateBasketTotalPrice(newPrice) {
+    document.getElementById('basket-total-price').innerHTML = newPrice
+  }
+
 }
