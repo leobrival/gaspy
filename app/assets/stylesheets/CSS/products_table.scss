@@ -1,4 +1,4 @@
-.table__titre{
+.table__title{
     height: 50px;
     background-color: gray;
     width: 100%;
@@ -6,4 +6,23 @@
     font-weight: bold;
     color: black;
 
+}
+.table__line--qte{
+    background-color: blue;
+    width: 70px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+.table__line--tot{
+    border: none;
+    color: blue;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: transparent;
+    width: auto;
+}
+.table__line--tot::after{
+    content:"€";
 }

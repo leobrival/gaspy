@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import CalculTarifController from "./calcul_tarif_controller"
+application.register("calcul-tarif", CalculTarifController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

@@ -18,11 +18,16 @@
             <!-- tableau du panier-->
             <% @basket_items_by_category.each do |category, basket_items| %>
                 <details>
-                    <summary class="table__titre"><%= category %></summary>
-                    <table>
+                    <summary class="title"><%= category %></summary>
+                    <table data-controller="calcul-tarif">
                         <% basket_items.each do |basket_item| %>
-                            <tr>
-                                <td><%= cl_image_tag(basket_item.product.photo.key, width: 10, height: 10, crop: :fill) %></td>
+                            <tr class="table__line">
+                                <td><%= cl_image_tag(basket_item.product.photo.key, width: 50, height: 50, crop: :fill) %></td>
+                                <td><strong><%= basket_item.product.name %></strong> </td>
+                                <td><%= basket_item.product.pricing   %> €  <input type="hidden" class="table__line--tarif" value=<%= basket_item.product.pricing%>></td>
+                                <td><input type="number" name="qte" min="0" max=<%= basket_item.product.quantity %> value=<%= basket_item.quantity %> class="table__line--qte" data-action="change->calcul-tarif#calculTarif"></td>
+                                <td><input type="number" name="qte-tot" class="table__line--tot"></td>
+                                <td><p class="table__line--tot"></p></td>
                             </tr>
                         <% end %>
                     </table>
