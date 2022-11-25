@@ -22,7 +22,7 @@ produit.name = "Croissants"
 produit.description = "Croissant traditionnel au beurre"
 produit.pricing = 0.55
 produit.quantity = 10
-produit.category = "viennoiserie"
+produit.category = "Viennoiserie"
 file = File.open(safe_asset_path("croissants.jpg"))
 produit.photo.attach(io: file, filename: "croissants.jpg", content_type: "image/jpg")
 produit.save!
@@ -32,7 +32,7 @@ produit2.name = "Gateaux secs"
 produit2.description = "Gateau sec traditionnel au beurre"
 produit2.pricing = 0.75
 produit2.quantity = 8
-produit2.category = "traditionnel"
+produit2.category = "Traditionnel"
 file = File.open(safe_asset_path("gateau-sec.jpg"))
 produit2.photo.attach(io: file, filename: "gateau-sec.jpg", content_type: "image/jpg")
 produit2.save!
@@ -42,7 +42,7 @@ produit3.name = "Nattes au beurre"
 produit3.description = "Natte au beurre"
 produit3.pricing = 1
 produit3.quantity = 5
-produit3.category = "viennoiserie"
+produit3.category = "Viennoiserie"
 file = File.open(safe_asset_path("nattes.jpg"))
 produit3.photo.attach(io: file, filename: "nattes.jpg", content_type: "image/jpg")
 produit3.save!
@@ -52,7 +52,7 @@ produit4.name = "Pains au chocolat feuilleté"
 produit4.description = "Pain au chocolat feuilleté"
 produit4.pricing = 0.80
 produit4.quantity = 14
-produit4.category = "viennoiserie"
+produit4.category = "Viennoiserie"
 file = File.open(safe_asset_path("pain-chocolat.jpg"))
 produit4.photo.attach(io: file, filename: "pain-chocolat.jpg", content_type: "image/jpg")
 produit4.save!
@@ -62,7 +62,7 @@ produit5.name = "Pâtés sucrés"
 produit5.description = "Patés sucrés"
 produit5.pricing = 0.50
 produit5.quantity = 9
-produit5.category = "traditionnel"
+produit5.category = "Traditionnel"
 file = File.open(safe_asset_path("pate-sucre-2.jpg"))
 produit5.photo.attach(io: file, filename: "pate-sucre-2.jpg", content_type: "image/jpg")
 produit5.save!
@@ -72,7 +72,7 @@ produit6.name = "Pomme-cannelle"
 produit6.description = "Pomme cannelle au beurre"
 produit6.pricing = 1.25
 produit6.quantity = 9
-produit6.category = "traditionnel"
+produit6.category = "Traditionnel"
 file = File.open(safe_asset_path("pomme-cannelle.jpg"))
 produit6.photo.attach(io: file, filename: "pomme-cannelle.jpg", content_type: "image/jpg")
 produit6.save!
