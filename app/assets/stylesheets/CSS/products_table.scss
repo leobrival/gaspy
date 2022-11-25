@@ -8,16 +8,17 @@
 
 }
 .table__line--qte{
-    background-color: blue;
+    background-color: $primary;
     width: 70px;
     border-radius: 10px;
     color: white;
     font-weight: bold;
     border: none;
+    text-align: center;
 }
 .table__line--tot{
     border: none;
-    color: blue;
+    color: $primary;
     font-weight: bold;
     font-size: 30px;
     background-color: transparent;
@@ -25,4 +26,10 @@
 }
 .table__line--tot::after{
     content:"€";
+}
+.table__line__btn--moins>i{
+    // border:
+    // background-color: red;
+    // color: white;
+    // background-color: burlywood;
 }

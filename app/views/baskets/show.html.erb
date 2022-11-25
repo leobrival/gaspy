@@ -15,6 +15,8 @@
                 </div>
             </div>
 
+            <p><i class="fa-regular fa-house-user"></i></p>
+
             <!-- tableau du panier-->
             <% @basket_items_by_category.each do |category, basket_items| %>
                 <details>
@@ -25,8 +27,11 @@
                                 <td><%= cl_image_tag(basket_item.product.photo.key, width: 50, height: 50, crop: :fill) %></td>
                                 <td><strong><%= basket_item.product.name %></strong> </td>
                                 <td><%= basket_item.product.pricing   %> €  <input type="hidden" class="table__line--tarif" value=<%= basket_item.product.pricing%>></td>
-                                <td><input type="number" name="qte" min="0" max=<%= basket_item.product.quantity %> value=<%= basket_item.quantity %> class="table__line--qte" data-action="change->calcul-tarif#calculTarif"></td>
+                                <td><button class="table__line__btn--moins"><i class="fa-solid fa-circle-plus"></i></button></td>
+                                <td><input type="text" name="qte" min="0" max=<%= basket_item.product.quantity %> value=<%= basket_item.quantity %> class="table__line--qte" data-action="change->calcul-tarif#calculTarif"></td>
+                                <td> <button class="table__line__btn"><i class="fa-solid fa-circle-minus"></i></button></td>
                                 <td><input type="number" name="qte-tot" class="table__line--tot"></td>
+
                                 <td><p class="table__line--tot"></p></td>
                             </tr>
                         <% end %>
