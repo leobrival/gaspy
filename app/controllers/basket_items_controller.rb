@@ -11,8 +11,15 @@ class BasketItemsController < ApplicationController
   end
 
   def update
-    @basket_item.update(basket_item_params)
-    redirect_to products_path #vérifier la page de retour
+    respond_to do |format|
+      if @basket_item.update(basket_item_params)
+        format.html { redirect_to products_path, notice: 'Quantité modifiée' }
+        format.json { render json: { basket_price: @basket_item.basket.total_price } }
+      else
+        format.html { redirect_to products_path, alert: 'La quantité n\a pas pu être modifiée' }
+        format.json { render json: { errors: @basket_item.errors.full_messages.join(', ') } }
+      end
+    end
   end
 
   def destroy

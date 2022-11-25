@@ -10,32 +10,40 @@
                 </div>
 
                 <div class="basket__header--tarif">
-                    <p class="basket__header--tarif--p me-4">Total : XXX</p>
-                    <%= link_to "Valider mon panier", products_path, class: "basket__header--tarif--a bg-primary" %>
+                    <p class="basket__header--tarif--p me-4">Total : <span id="basket-total-price"><%= @basket.total_price %></span> €</p>
+                    <%= link_to "Valider mon panier", products_path, class: "basket__header--tarif--a" %>
                 </div>
             </div>
 
             <!-- tableau du panier-->
             <% @basket_items_by_category.each do |category, basket_items| %>
                 <details>
-                    <summary class="table__titre"><%= category %></summary>
-                    <table>
+                    <summary class="title"><%= category %></summary>
+                    <table class="w-100">
                         <% basket_items.each do |basket_item| %>
-                            <tr>
-                                <td><%= cl_image_tag(basket_item.product.photo.key, width: 10, height: 10, crop: :fill) %></td>
+                            <tr class="table__line"
+                                data-controller="calcul-tarif"
+                                data-calcul-tarif-unit-price-value="<%= basket_item.product.pricing %>"
+                                data-calcul-tarif-product-quantity-value="<%= basket_item.product.quantity %>"
+                                data-calcul-tarif-update-url-value="<%= basket_item_path(basket_item) %>">
+                                <td><%= cl_image_tag(basket_item.product.photo.key, width: 50, height: 50, crop: :fill) %></td>
+                                <td style="width: 50%"><strong><%= basket_item.product.name %></strong></td>
+                                <td style="width: 10%"><%= basket_item.product.pricing %> €</td>
+
+                                <td>
+                                    <button class="table__line__btn--moins" data-action="click->calcul-tarif#calculTarifMoins"><i class="fa-solid fa-circle-minus"></i></button>
+                                    <input type="number" data-calcul-tarif-target="input" name="qte" min="0" max=<%= basket_item.product.quantity %> value=<%= basket_item.quantity %> class="table__line--qte" >
+                                    <button class="table__line__btn--plus" data-action="click->calcul-tarif#calculTarifPlus"><i class="fa-solid fa-circle-plus"></i></button>
+                                </td>
+                                <td style="width: 10%"><p class="table__line__btn--total-tarift"><span data-calcul-tarif-target="fullPrice"><%= basket_item.quantity * basket_item.product.pricing%></span>€</p></td>
+                                <td><i class="fa-solid fa-trash"></i></td>
                             </tr>
                         <% end %>
                     </table>
                 </details>
                  <div class="my-4"></div>
             <% end %>
-
-
-            <ul>
-                <% @basket_items.each do |basket_item| %>
-                    <li><%= basket_item.product.name %> x<%= basket_item.quantity %></li>
-                <% end %>
-            </ul>
         </div>
     </div>
 </div>
+
