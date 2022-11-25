@@ -1,6 +1,6 @@
 def safe_asset_path(img_name)
   if Rails.env.production?
-    ActionController::Base.helpers.asset_path(img_name)
+    "public/seeds/#{img_name}"
   else
     "app/assets/images/#{img_name}"
   end
