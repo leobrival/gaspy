@@ -167,6 +167,7 @@ user3.password = "dimitri123"
 user3.save!
 
 # TABLE BASKEuserT
+
 User.all.each do |u|
   basket = Basket.new
   basket.relay_point_id = relay_point
