@@ -1,2 +1,41 @@
-<h1>Baskets#show</h1>
-<p>Find me in app/views/baskets/show.html.erb</p>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <p><i class="fa-solid fa-arrow-left-long"></i> Retour au magasin</p>
+            <div class="basket__header">
+                <div class="basket__header--title">
+                    <h1>Détail panier</h1>
+                    <h2>(Nb produit)</h2>
+                </div>
+
+                <div class="basket__header--tarif">
+                    <p class="basket__header--tarif--p me-4">Total : XXX</p>
+                    <%= link_to "Valider mon panier", products_path, class: "basket__header--tarif--a bg-primary" %>
+                </div>
+            </div>
+
+            <!-- tableau du panier-->
+            <% @basket_items_by_category.each do |category, basket_items| %>
+                <details>
+                    <summary class="table__titre"><%= category %></summary>
+                    <table>
+                        <% basket_items.each do |basket_item| %>
+                            <tr>
+                                <td><%= cl_image_tag(basket_item.product.photo.key, width: 10, height: 10, crop: :fill) %></td>
+                            </tr>
+                        <% end %>
+                    </table>
+                </details>
+                 <div class="my-4"></div>
+            <% end %>
+
+
+            <ul>
+                <% @basket_items.each do |basket_item| %>
+                    <li><%= basket_item.product.name %> x<%= basket_item.quantity %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>
