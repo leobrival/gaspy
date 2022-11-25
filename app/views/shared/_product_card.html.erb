@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="card__container">
+    <% @products.each do |product| %>
+      <div class="card">
+        <div class="card__product--img">
+          <%= cl_image_tag product.photo.key, height: 100 %>
+        </div>
+
+        <div class="card__price">
+          <p><%= product.pricing %><sup>€</sup></p>
+          <p><i class="fa-solid fa-circle-plus"></i></p>
+        </div>
+
+        <div class="card__quantity">
+          <p class="me-3">Quantité<br>disponible:</p>
+          <p><%= product.quantity %> </p>
+        </div>
+
+        <div class="card__description">
+          <%= product.description %>
+        </div>
+        <%= link_to "Voir produit", product_path(product.id), class: "btn btn-primary card__link" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
