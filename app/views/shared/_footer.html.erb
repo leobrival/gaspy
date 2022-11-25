@@ -1,0 +1,46 @@
+<footer class="footer">
+    <div class="container">
+        <div class="d-flex flex-row justify-content-between">
+            <p class="footer_slogan col-4">Tout n'est pas toujours bon à jeter.</p>
+            <ul class="footer_column d-flex flex-column">
+              <li class="column_title">Explore</li>
+              <li class="footer_item"><%= link_to "Accueil", root_path %></li>
+              <li class="footer_item"><%= link_to "Products", products_path %></li>
+              <li class="footer_item"><a href="#">Jobs</a></li>
+            </ul>
+            <ul class="footer_column d-flex flex-column">
+              <li class="column_title">Filtres</li>
+              <li class="footer_item"><a href="#">Ânes</a></li>
+              <li class="footer_item"><a href="#">Bœuf</a></li>
+              <li class="footer_item"><a href="#">Cabrits</a></li>
+              <li class="footer_item"><a href="#">Chevals</a></li>
+              <li class="footer_item"><a href="#">Moutons</a></li>
+            </ul>
+            <ul class="footer_column d-flex flex-column">
+              <li class="column_title">Ressources</li>
+              <li class="footer_item"><a href="#">Communauté</a></li>
+              <li class="footer_item"><a href="#">Tarifs</a></li>
+              <li class="footer_item"><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer_copyright d-flex flex-row justify-content-between">
+            <ul class="social-wrapper col-6 d-flex flex-row">
+                <li class="footer_item"><a href="#">Conditions d'utilisation</a></li>
+                <li class="footer_item"><a href="#">Vie privée</a></li>
+                <li class="footer_item"><a href="#">Contactez-nous</a></li>
+                <li class="footer_item d-flex flex-row align-items-center">
+                    <a href="#">Statut</a>
+                    <% if user_signed_in? %>
+                      <div class="bg-success"></div>
+                    <% else %>
+                      <div class="bg-danger"></div>
+                    <% end %>
+                </li>
+            </ul>
+            <ul class="footer_social-wrapper d-flex flex-row">
+              <li class="footer_social-icon"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+              <li class="footer_social-icon"><a href="https://github.com/leobrival/gaspy"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>

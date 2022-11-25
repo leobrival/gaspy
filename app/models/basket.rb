@@ -10,4 +10,8 @@ class Basket < ApplicationRecord
 
   scope :all_finished,  -> { where(basket_status: "finished") }
   scope :all_pending,   -> { where(basket_status: "pending") }
+
+  def total_price
+    basket_items.includes(:product).sum(&:price)
+  end
 end
