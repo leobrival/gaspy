@@ -13,6 +13,20 @@
 @import "CSS/basket_show";
 @import "CSS/products_table";
 
-.padding-global {
-  padding: 0 2.5rem;
+.container-large {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.container-medium {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.container-small {
+  width: 100%;
+  max-width: 48rem;
+  margin: 0 auto;
 }

@@ -1,29 +1,7 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
-
-<%= render "shared/product_card" %>
-<!--
-<div class="container">
-  <div class="card">
-    <% @products.each do |product| %>
-      <div class="card col-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h4 class="card-title"> <%= product.name %> </h4>
-              <p class="card-text"> <%= product.description %> </p>
-              <p class="card-text"><small class="text-muted"> <%= product.description %> </small></p>
-              <p class="card-text"><small class="text-muted"> <%= product.pricing %> </small></p>
-              <p class="card-text"><small class="text-muted"> <%= product.quantity %> </small></p>
-              <p class="card-text"><small class="text-muted"> <%= product.category %> </small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<section class="">
+  <div class="container-medium">
+    <div class="cards__products">
+      <%= render "shared/card_product" %>
+    </div>
   </div>
-</div>
--->
+</section>
