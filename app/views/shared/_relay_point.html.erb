@@ -1,0 +1,29 @@
+  <% @relay_points.each do |relay_point| %>
+
+  <div class="card_relay">
+
+    <div class="row pl-3">
+      <h3 class="card-title"><%= relay_point.name %></h3>
+    </div>
+
+    <div class="row">
+      <p><%= relay_point.address %>, <%= relay_point.city %>, <%= relay_point.zip_code %>, <%= relay_point.country %></p>
+    </div>
+
+
+
+    <div class="row">
+      <p><%= relay_point.phone %></p>
+    </div>
+
+    <div class="row">
+      <p><%= relay_point.email %></p>
+    </div>
+ <%= link_to products_path do %>
+<% end %>
+    <input type='checkbox'>
+    <span></span>
+    Click Me
+</label>
+    </div>
+        <% end %>
