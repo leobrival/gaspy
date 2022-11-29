@@ -1,0 +1,41 @@
+.paiement_address{
+    display: flex;
+    // background-color: gray;
+    align-items: center;
+    padding: 5px 5px;
+}
+.paiement_address--user{
+    margin: 0;
+
+}
+.paiement_address--btn{
+    border-radius: 10px;
+    background-color: $primary;
+    color: white;
+    padding: 3px 3px;
+    border: 0;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.paiement_basket{
+
+}
+.paiement_basket--title{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.paiement_basket--items{
+    display: flex;
+    justify-content: space-between;
+}
+.paiement_basket--tarif-panier{
+    display: flex;
+    justify-content: space-between;
+}
+.paiement_basket--tarif-panier span{
+    font-weight: bold;
+    color: $primary;
+}
