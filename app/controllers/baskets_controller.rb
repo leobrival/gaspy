@@ -1,5 +1,5 @@
 class BasketsController < ApplicationController
-  before_action :set_basket, only: [:show, :edit, :update, :destroy]
+  before_action :set_basket, only: [:show, :edit, :update, :order, :order_submit, :destroy]
 
   def index
     @baskets = Basket.all
@@ -34,7 +34,26 @@ class BasketsController < ApplicationController
     redirect_to baskets_path
   end
 
+  def order
+    @basket_items = @basket.basket_items.includes(:product)
+    @total_price = calcul_sum(@basket_items)
+    @basket_items_by_category = @basket_items.group_by { |bi| bi.product.category }
+
+  end
+
+  def order_submit
+  end
+
+
   private
+
+  def calcul_sum(basket_items)
+    sum = 0
+    basket_items.each do |bi|
+      sum += bi.quantity * bi.product.pricing
+    end
+    sum
+  end
 
   def basket_params
     params.require(:basket).permit(:name, :description,)
