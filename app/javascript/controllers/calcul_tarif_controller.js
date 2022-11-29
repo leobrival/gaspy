@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { debug } from "webpack"
 
 export default class extends Controller {
   static targets = ["input", "moins", "plus", "fullPrice"]
@@ -9,29 +10,44 @@ export default class extends Controller {
   }
 
   calculTarifMoins(){
-    if (this.inputTarget.value <= 1) return
+    console.log("Brice")
+    console.log("Moins")
 
-    this.inputTarget.value--
-    this.majTarif()
+    if (this.inputTarget.value = 0) return
+    this.#fetchBasketItemQuantity(-1)
+    this.majTarif(-1)
   }
 
   calculTarifPlus(){
-    console.log(this.inputTarget.value)
+    /* console.log(this.inputTarget.value)
     if (this.inputTarget.value >= this.productQuantityValue) return
 
     this.inputTarget.value++
-    this.majTarif()
+    this.majTarif() */
+    console.log('Plus')
+
+    this.#fetchBasketItemQuantity(1)
+    this.majTarif(1)
   }
 
-  majTarif() {
-    const newPrice = this.inputTarget.value * this.unitPriceValue
-    this.fullPriceTarget.innerHTML = newPrice
-    this.#updateBasketItemQuantity()
+  majTarif(qtityChange) {
+    const newPrice = (parseInt(this.inputTarget.value, 10) + qtityChange) * this.unitPriceValue
+    this.fullPriceTarget.innerHTML = newPrice.toFixed(2)
+    // this.#fetchBasketItemQuantity(this.inputTarget.value)
   }
 
-  #updateBasketItemQuantity() {
+  delete() {
+    const qteBack = this.inputTarget.value
+    this.#fetchBasketItemQuantity(-qteBack)
+    this.majTarif(-qteBack)
+  }
+
+
+  #fetchBasketItemQuantity(qtityChange) {
+  // #updateBasketItemQuantity() {
     const data = new FormData()
-    data.append('basket_item[quantity]', this.inputTarget.value)
+    // data.append('basket_item[quantity]', this.inputTarget.value)
+    data.append('basket_item[quantity]', qtityChange)
     const url = this.updateUrlValue
     const options = {
       method: 'PATCH',
@@ -48,13 +64,25 @@ export default class extends Controller {
         if (data.errors) {
           window.alert(data.errors)
         } else {
+          console.log('payload quantity', data.basket_quantity)
+          this.#updateBasketItemQuantity(data.basket_quantity)
           this.#updateBasketTotalPrice(data.basket_price)
         }
       })
   }
 
   #updateBasketTotalPrice(newPrice) {
-    document.getElementById('basket-total-price').innerHTML = newPrice
+    document.getElementById('basket-total-price').innerHTML = newPrice.toFixed(2)
   }
 
+  #updateBasketItemQuantity(newQuantity) {
+    console.log(newQuantity)
+    this.inputTarget.value = newQuantity
+  }
+
+  #countIntemsInBasket() {
+    let tabNbItems = 0
+    console.log(document.querySelectorAll('.table__line--qte').innerText)
+    tabNbItems += parseInt(document.querySelectorAll('.table__line--qte').innerText)
+  }
 }
