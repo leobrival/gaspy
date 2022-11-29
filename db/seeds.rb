@@ -289,7 +289,7 @@ produit27.save_if_able
 
 # TABLE POINT RELAYS
 relay_point = RelayPoint.new
-relay_point.name = "Point relay du Campus"
+relay_point.name = "Campus"
 relay_point.description = "Point du Campus se situe à l'Université des Antilles et de la Guane"
 relay_point.address = "Campus de Schoelcher-97275 Schoelcher"
 relay_point.zip_code = "97275"
@@ -304,7 +304,7 @@ relay_point2.name = "Lakoudigital"
 relay_point2.description = "Point du Campus se situe à l'Université des Antilles et de la Guane"
 relay_point2.address = "1er étage, Terminal Inter-Îles-Bassin de radoub-Gare maritime du Grand Port de la Martinique-Fort-de-France 97200-Martinique"
 relay_point2.zip_code = "97200"
-relay_point2.city = "nFort-de-France"
+relay_point2.city = "Fort-de-France"
 relay_point2.country = "Martinique"
 relay_point2.phone = "06 98 22 97 93"
 relay_point2.email = "belbonjou@lakoudigital.com"
