@@ -11,7 +11,7 @@
 
                 <div class="basket__header--tarif">
                     <p class="basket__header--tarif--p me-4">Total : <span id="basket-total-price"><%= @basket.total_price %></span> €</p>
-                    <%= link_to "Valider mon panier", products_path, class: "basket__header--tarif--a" %>
+                    <%= link_to "Valider mon panier", order_basket_path, class: "basket__header--tarif--a" %>
                 </div>
             </div>
 
