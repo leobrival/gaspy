@@ -1,4 +1,4 @@
-<div class="countainer">
+<div class="container">
 
     <div class="paiement_address">
         <p class="paiement_address--user">
@@ -10,16 +10,24 @@
     <hr>
 
     <div class="paiement_basket">
-        <div>
-            <p>
-                Votre panier(nb article)
-            </p>
-            <p>
-                (Voir détails)
-            </p>
+        <details>
+            <summary class="paiement_basket--title mb-4">
+                <span>Votre panier(nb article)</span>
+                <span>Voir détails</span>
+            </summary>
+            <ol>
+                <% @basket_items.each do |item| %>
+                <li class="paiement_basket--items"><span><%= item.product.name %></span> <span> <%= item.quantity * item.product.pricing %> €</span></li>
+                <% end %>
+            </ol>
+        </details>
+        <hr>
+        <div class="paiement_basket--tarif-panier">
+            <span   >TOTAL HT :</span> <span><%= @total_price %>€</span>
         </div>
-    </div>
 
+
+    </div>
     <div class="paiement_methode">
 
     </div>
