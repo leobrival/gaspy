@@ -47,10 +47,17 @@ class BasketsController < ApplicationController
     @basket_items_by_category = @basket_items.group_by { |bi| bi.product.category }
 
     @relay_points = RelayPoint.all
-    
+
   end
 
   def order_submit
+    @basket.basket_status="finished"
+    @basket.save
+
+    @basket = Basket.new
+    @basket.user_id = current_user.id
+    @basket.save
+    redirect_to products_path
   end
 
   def delivery
