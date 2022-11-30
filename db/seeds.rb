@@ -1,10 +1,10 @@
-def safe_asset_path(img_name)
-  if Rails.env.production?
-    "public/seeds/#{img_name}"
-  else
-    "app/assets/images/#{img_name}"
-  end
-end
+# def safe_asset_path(img_name)
+#   if Rails.env.production?
+#     "public/seeds/#{img_name}"
+#   else
+#     "app/assets/images/#{img_name}"
+#   end
+# end
 
 unless Rails.env.production?
   puts "Erasing database"
