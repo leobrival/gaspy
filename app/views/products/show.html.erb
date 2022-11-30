@@ -1,7 +1,4 @@
-
-
-<div class="container w-50 my-5 pb-3 border shadow">
-<div class="p-3">
+<!--<div class="container-medium">
   <%= link_to products_path class: "underline" do %>
     <span><i class="fa-solid fa-arrow-left-long"></i> Retourner à l'accueil</span>
   <% end %>
@@ -10,13 +7,11 @@
         <%= @product.category %>
       </div>
 
-  <div class="row">
 
     <div class="box_image shadow p-3 col-6">
       <%= cl_image_tag @product.photo.key, class: "image_main rounded" %>
     </div>
 
-    <div class="col-6 ">
 
       <div class= "size-text">
         <strong> <%= @product.name %></strong>
@@ -43,8 +38,40 @@
                       input_html: { style: 'width: 70px;', min: 0, max: @product.quantity } %>
           <%= f.submit 'Ajouter au pannier', class: "btn btn-primary mb-3" %>
         <% end %>
-    </div>
+</div>-->
 
+<section class="section__show__product">
+  <div class="container-medium">
+    <%= link_to products_path class: "underline" do %>
+      <span class="btn-return"><i class="fa-solid fa-arrow-left"></i>Retour au produits</span>
+    <% end %>
+    <h1><%= @product.name %></h1>
+    <div class="show__product__content">
+      <div class="show__product__infos">
+        <div class="show__product__img--wrapper">
+          <%= cl_image_tag @product.photo.key, class: "show__product__img" %>
+        </div>
+        <div class="show__product__infos--top">
+          <p><%= @product.quantity %> unitée(s) disponible</p>
+          <p><%= @product.pricing %>€ / unitée</p>
+        </div>
+        <div class="divider"></div>
+        <h3>Description</h3>
+        <p><%= @product.description %></p>
+      </div>
+      <div class="show__product__wrapper">
+      <p class="show__product__tag"><%= @product.category %></p>
+        <div class="show__product__form shadow-sm">
+          <p class="show__product__pricing"><%= @product.pricing %>€</p>
+          <%= simple_form_for([@product, @basket_item]) do |f| %>
+            <%= f.input :quantity, label: false,
+                        wrapper_html: { class: 'me-2'},
+                        input_html: { min: 0, max: @product.quantity } %>
+            <%= f.submit 'Ajouter au pannier', class: "btn btn-primary" %>
+          <% end %>
+          <button class="btn btn-primary">Voir le panier</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
