@@ -3,15 +3,15 @@
     <div class="row">
         <div class="col-md-12">
             <p><i class="fa-solid fa-arrow-left-long"></i> Retour au magasin</p>
-            <div class="basket__header">
+            <div class="basket__header mb-4">
                 <div class="basket__header--title">
                     <h1>Détail panier</h1>
-                    <h2>(Nb produit)</h2>
+                    <h6><%= @nb_items_in_basket %></h6>
                 </div>
 
                 <div class="basket__header--tarif">
                     <p class="basket__header--tarif--p me-4">Total : <span id="basket-total-price"><%= @basket.total_price %></span> €</p>
-                    <%= link_to "Valider mon panier", products_path, class: "basket__header--tarif--a" %>
+                    <%= link_to "Valider mon panier", order_basket_path, class: "basket__header--tarif--a" %>
                 </div>
             </div>
 

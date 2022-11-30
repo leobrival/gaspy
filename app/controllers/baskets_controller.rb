@@ -1,5 +1,5 @@
 class BasketsController < ApplicationController
-  before_action :set_basket, only: [:show, :edit, :update, :order, :order_submit, :destroy]
+  before_action :set_basket, only: [:show, :edit, :update, :order, :order_submit, :delivery, :destroy]
 
   def index
     @baskets = Basket.all
@@ -19,6 +19,13 @@ class BasketsController < ApplicationController
     @basket_items = @basket.basket_items
     @products = @basket.products
     @basket_items_by_category = @basket.basket_items.includes(:product).group_by { |bi| bi.product.category }
+    nb_items_in_basket = @basket_items.sum(:quantity)
+    if nb_items_in_basket <= 1
+      @nb_items_in_basket = "#{nb_items_in_basket} produit dans le panier"
+    else
+      @nb_items_in_basket = "#{nb_items_in_basket} produits dans le panier"
+    end
+
   end
 
   def edit
@@ -39,9 +46,17 @@ class BasketsController < ApplicationController
     @total_price = calcul_sum(@basket_items)
     @basket_items_by_category = @basket_items.group_by { |bi| bi.product.category }
 
+    @relay_points = RelayPoint.all
+    
   end
 
   def order_submit
+  end
+
+  def delivery
+    raise
+
+
   end
 
 
