@@ -1,24 +1,102 @@
-<form>
-    <i class="fa-regular fa-credit-card"></i> <label for="cb">CARTE BANCAIRE: </label> <input type="radio" id="cb" name="cb"><br>
 
-    <i class="fa-brands fa-cc-paypal"></i><label for="pp">PAYPAL: </label> <input type="radio" id="pp" name="pp"><br>
-
-    <i class="fa-solid fa-coins"></i><label for="cs">ESPECES: </label> <input type="radio" id="cs" name="cs">
-</form>
-
-
-<div>
-    <details>
-        <summary>
-            <p><i class="fa-regular fa-credit-card"></i> CARTE BANCAIRE:</p>
-        </summary>
-
-        <summary>
-            <p> <i class="fa-brands fa-cc-paypal"></i> CARTE BANCAIRE:</p>
-        </summary>
-
-        <summary>
-            <p><i class="fa-solid fa-coins"></i> CARTE BANCAIRE:</p>
-        </summary>
-    </details>
+<div class="container">
+    <div class="d-flex mx-5">
+        <div class="box border">
+        <i class="icon1 fa-regular fa-credit-card"></i>
+        </div>
+        <div class="box border">
+        <i class="icon2 fa-brands fa-cc-paypal"></i>
+        </div>
+        <div class="box border">
+        <i class="icon3 fa-solid fa-coins"></i>
+        </div>
+    </div>
 </div>
+
+
+<%= button_to "VALIDER MA COMMANDE", order_submit_basket_path, class: "payment_methode--submit" %>
+
+<!--
+<div class="container">
+    <div class="payment_methode--box">
+        <h4>SELECTION DU MOYEN DE PAIEMENT</h4>
+        <details>
+            <summary>
+                <p><i class="fa-regular fa-credit-card"></i> CARTE BANCAIRE:</p>
+            </summary>
+
+            <form>
+                <div class="d-flex">
+                    <span class="me-5">
+                        <label for="ncard">Numéro de carte :</label><br>
+                        <input type="text" id="ncard" name="ncard">
+                    </span>
+
+                    <span>
+                        <label for="dcard">Date d'expiration :</label><br>
+                        <input type="month" id="dcard" name="dcard" width="100px">
+                    </span>
+                </div>
+
+                <div class="d-flex mt-4">
+                    <span class="me-5">
+                        <label for="tcard">Titulaire de la carte :</label><br>
+                        <input type="text" id="tcard" name="tcard" placeholder>
+                    </span>
+
+                    <span>
+                        <label for="ccard">Code de sécurité : :</label><br>
+                        <input type="text" id="ccard" maxlength="3" name="ccard">
+                    </span>
+                </div>
+
+                <div>
+                        <input type="checkbox" id="cgv" name="cgv"><label for="cgv" class="mt-4"><span>Je certifie avoir lu, compris et accepté les</span> <a href="#">conditions générales de vente</a></label>
+                </div>
+
+                <div class="mt-4">
+                        <input type="submit" id="btn-mp" class="btn btn-primary" value="PAYER MA COMMANDE">
+                </div>
+
+            </form>
+        </details>
+
+        <details>
+            <summary>
+                <p></i> PAYPAL:</p>
+            </summary>
+
+            <form>
+                <div class="d-flex">
+                <p>Vous serez redirigé vers le site Paypal afin de valider votre paiement.</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="cgv2" name="cgv2"><label for="cgv2" class="mt-4"><span>Je certifie avoir lu, compris et accepté les</span> <a href="#">conditions générales de vente</a></label>
+                </div>
+                <div class="mt-4">
+                        <input type="submit" id="btn-mp2" class="btn btn-primary" value="PAYER MA COMMANDE">
+                </div>
+            </form>
+        </details>
+
+        <details>
+            <summary>
+                <p></i> PAIEMENT EN ESPECES:</p>
+            </summary>
+
+            <form>
+                <div class="d-flex">
+                <p>Les instructions concernant le paiement en espèces vous seront transmises par courriel après validation de votre commande. Votre commande ne sera définitivement validée par nos services qu'après réception du paiement à la livraison.</p>
+                </div>
+                <div>
+                    <input type="checkbox" id="cgv2" name="cgv2"><label for="cgv2" class="mt-4"><span>Je certifie avoir lu, compris et accepté les</span> <a href="#">conditions générales de vente</a></label>
+                </div>
+                <div class="mt-4">
+                        <input type="submit" id="btn-mp4" class="btn btn-primary" value="PAYER MA COMMANDE">
+                </div>
+            </form>
+        </details>
+    </div>
+</div>
+
+-->
