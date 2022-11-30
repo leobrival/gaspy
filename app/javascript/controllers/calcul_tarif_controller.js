@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { debug } from "webpack"
+// import { debug } from "webpack"
 
 export default class extends Controller {
   static targets = ["input", "moins", "plus", "fullPrice"]
