@@ -1,34 +1,69 @@
-.title{
-    background-color: lightgray;
-    height: 40px;
-    font-size: 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+.show__basket__summary {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: $light-gray;
+  font-weight: 500;
 }
-.table__line--qte{
-    background-color: $primary;
-    width: 70px;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    border: none;
-    text-align: center;
-}
-.table__line--tot{
-    border: none;
-    color: $primary;
-    font-weight: bold;
-    font-size: 30px;
-    background-color: transparent;
-    width: auto;
-}
-.table__line__btn--moins, .table__line__btn--plus{
-    border: none;
 
+.show__basket__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
 }
-.table__line__btn--total-tarift{
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 15px;
-    // border: 4px solid black;
+
+.show__basket__pricing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.table__line--qte {
+  background-color: $primary;
+  width: 70px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+}
+.table__line--tot {
+  border: none;
+  color: $primary;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: transparent;
+  width: auto;
+}
+.table__line__btn--moins,
+.table__line__btn--plus {
+  border: none;
+}
+.table__line__btn--total-tarift {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+  // border: 4px solid black;
+}
+
+.show__basket__table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+}
+
+.show__basket__line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #d8dee4;
 }

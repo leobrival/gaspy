@@ -39,13 +39,14 @@
 }
 
 .show__product__tag {
+  font-size: 0.88rem;
   padding: 0.5rem 1rem;
   background-color: $blue;
   color: $white;
   text-transform: capitalize;
   border-radius: 5rem;
-  justify-content: flex-end;
-  text-align: end;
+  justify-content: center;
+  text-align: center;
 }
 
 .show__product__infos {
@@ -92,7 +93,6 @@
   background-color: aqua;
   font-size: 1.5rem;
   color: $blue;
-
 }
 
 .show__form__input {
