@@ -16,7 +16,70 @@
 .card_relay {
   padding: 2rem;
 }
-.fa-solid{
- color: red;
- font-size: 2rem;
+.icon1{
+ color: #1E90FF;
+ font-size: 4rem;
+ text-align: center  ;
+ display: block;
+
+}
+.icon2{
+  color: #0000FF;
+  font-size: 4rem;
+  text-align: center  ;
+  display: block;
+
+ }
+ .icon3{
+  color: #FFD700;
+  font-size: 4rem;
+  text-align: center  ;
+  display: block;
+
+ }
+.box.border {
+  width: 30rem;
+  height: 8rem;
+  display: inline-table;
+  margin: 3rem;
+  border-radius: 5px;
+  width: 200px;
+}
+.container2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 1000px;
+  padding: 0 1rem;
+  height: 150px;
+  margin-top: 20px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+element.style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+::before {
+  vertical-align: sub;
+}
+.titre{
+  margin-left: 100px;
+}
+.paiement_mode{
+  margin-left: 50px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  width: 200px;
+  height: 170px;
+  display: inline-flex;
+}
+.underline{
+  text-decoration: underline;
+  margin-left: 10px;
+  margin-top: 10px;
 }
