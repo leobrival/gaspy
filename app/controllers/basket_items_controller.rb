@@ -12,9 +12,10 @@ class BasketItemsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @basket_item.update(basket_item_params)
+      if @basket_item.maj_qte_product(basket_item_params[:quantity])
         format.html { redirect_to products_path, notice: 'Quantité modifiée' }
-        format.json { render json: { basket_price: @basket_item.basket.total_price } }
+        format.json { render json: { basket_price: @basket_item.basket.total_price,
+                                     basket_quantity: @basket_item.quantity } }
       else
         format.html { redirect_to products_path, alert: 'La quantité n\a pas pu être modifiée' }
         format.json { render json: { errors: @basket_item.errors.full_messages.join(', ') } }
