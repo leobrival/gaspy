@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :baskets do
     member do
+      get :delivery
       get :order
       post :order_submit
     end
