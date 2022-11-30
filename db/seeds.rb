@@ -302,7 +302,7 @@ relay_point.save!
 relay_point2 = RelayPoint.new
 relay_point2.name = "Lakoudigital"
 relay_point2.description = "Point du Campus se situe à l'Université des Antilles et de la Guane"
-relay_point2.address = "1er étage, Terminal Inter-Îles-Bassin de radoub-Gare maritime du Grand Port de la Martinique-Fort-de-France 97200-Martinique"
+relay_point2.address = "1er étage, Terminal Inter-Îles-Bassin de radoub-Gare maritime du Grand Port de la Martinique"
 relay_point2.zip_code = "97200"
 relay_point2.city = "Fort-de-France"
 relay_point2.country = "Martinique"
