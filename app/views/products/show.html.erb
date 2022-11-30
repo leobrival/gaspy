@@ -42,7 +42,7 @@
 
 <section class="section__show__product">
   <div class="container-medium">
-    <%= link_to products_path class: "underline" do %>
+    <%= link_to products_path do %>
       <span class="btn-return"><i class="fa-solid fa-arrow-left"></i>Retour au produits</span>
     <% end %>
     <h1><%= @product.name %></h1>
@@ -52,7 +52,7 @@
           <%= cl_image_tag @product.photo.key, class: "show__product__img" %>
         </div>
         <div class="show__product__infos--top">
-          <p><%= @product.quantity %> unitée(s) disponible</p>
+          <p><%= @product.quantity %> unité(s) disponible</p>
           <p><%= @product.pricing %>€ / unitée</p>
         </div>
         <div class="divider"></div>
@@ -64,11 +64,14 @@
         <div class="show__product__form shadow-sm">
           <p class="show__product__pricing"><%= @product.pricing %>€</p>
           <%= simple_form_for([@product, @basket_item]) do |f| %>
-            <%= f.input :quantity, label: false,
-                        wrapper_html: { class: 'me-2'},
+            <div class="show__form__input--wrapper">
+              <%= f.input :quantity, label: false,
+                        wrapper_html: { class: 'show__form__input'},
                         input_html: { min: 0, max: @product.quantity } %>
-            <%= f.submit 'Ajouter au pannier', class: "btn btn-primary" %>
+              <%= f.submit 'Ajouter au pannier', class: "btn btn-primary" %>
+            </div>
           <% end %>
+          <div class="divider"></div>
           <button class="btn btn-primary">Voir le panier</button>
         </div>
       </div>

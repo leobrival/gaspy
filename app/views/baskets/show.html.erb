@@ -1,8 +1,10 @@
-<div class="container">
-
+<section class="">
+  <div class="container-large">
     <div class="row">
         <div class="col-md-12">
-            <p><i class="fa-solid fa-arrow-left-long"></i> Retour au magasin</p>
+          <%= link_to products_path do %>
+            <span class="btn-return"><i class="fa-solid fa-arrow-left"></i>Retour au produits</span>
+          <% end %>
             <div class="basket__header mb-4">
                 <div class="basket__header--title">
                     <h1>Détail panier</h1>
@@ -45,5 +47,5 @@
             <% end %>
         </div>
     </div>
-</div>
-
+  </div>
+</section>
