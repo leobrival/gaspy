@@ -1,28 +1,18 @@
 <% @products.each do |product| %>
-<div class="deiv">
   <div class="card__product">
     <div class="card__product__img--wrapper">
-      <%= cl_image_tag product.photo.key, class: "card__product__img" %>
+      <%= cl_image_tag product.photo.key, class: "card__product__img", width: "100" %>
     </div>
     <div class="card__product__content">
       <div class="card__product__infos">
-        <p><%= product.name %></p>
+        <h5><%= product.name %></h5>
         <p class="card__product__price"><%= product.pricing %><sup>€</sup></p>
       </div>
+      <div class="divider"></div>
       <p>Quantité disponible : <%= product.quantity %></p>
-      <p><%= product.description %></p>
+      <div class="divider"></div>
+      <!--<p><%= product.description %></p>-->
       <%= link_to "Voir produit", product_path(product.id), class: "btn btn-primary card__prodcut__btn" %>
     </div>
   </div>
-
-  <div class="card__product--2">
-    <div class="card__product__img--wrapper--2">
-      <%= cl_image_tag product.photo.key, class: "card__product__img--2" %>
-    </div>
-    <div class="card__product__infos--2">
-      <p><%= product.name %></p>
-      <p><%= product.description %></p>
-    </div>
-  </div>
-</div>
 <% end %>

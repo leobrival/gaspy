@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 body {
-  font-size: 1.25rem;
+  font-size: 1.13rem;
   background-color: $white;
 }
 
@@ -27,12 +27,12 @@ h3 {
   background-position: center;
   background-repeat: no-repeat;
   aspect-ratio: 2/1;
-  margin: 2rem;
   padding: 15rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2.5rem;
   width: 100%;
   text-align: center;
   color: $white;
@@ -190,4 +190,34 @@ h3 {
     color: $black;
     border-radius: rem;
   }
+}
+
+.btn-return {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  color: $black;
+
+  & a {
+    text-decoration: none;
+  }
+
+  & fa-arrow-left {
+    color: $black;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.divider {
+  margin: 1rem 0;
+  border-bottom: #d8dee4 1px solid;
 }
