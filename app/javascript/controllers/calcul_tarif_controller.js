@@ -9,23 +9,12 @@ export default class extends Controller {
     updateUrl: String
   }
 
-  calculTarifMoins(){
-    console.log("Brice")
-    console.log("Moins")
-
-    if (this.inputTarget.value = 0) return
+  calculTarifMoins() {
     this.#fetchBasketItemQuantity(-1)
     this.majTarif(-1)
   }
 
-  calculTarifPlus(){
-    /* console.log(this.inputTarget.value)
-    if (this.inputTarget.value >= this.productQuantityValue) return
-
-    this.inputTarget.value++
-    this.majTarif() */
-    console.log('Plus')
-
+  calculTarifPlus() {
     this.#fetchBasketItemQuantity(1)
     this.majTarif(1)
   }
@@ -33,7 +22,6 @@ export default class extends Controller {
   majTarif(qtityChange) {
     const newPrice = (parseInt(this.inputTarget.value, 10) + qtityChange) * this.unitPriceValue
     this.fullPriceTarget.innerHTML = newPrice.toFixed(2)
-    // this.#fetchBasketItemQuantity(this.inputTarget.value)
   }
 
   delete() {
@@ -48,6 +36,7 @@ export default class extends Controller {
     const data = new FormData()
     // data.append('basket_item[quantity]', this.inputTarget.value)
     data.append('basket_item[quantity]', qtityChange)
+    console.log("sending data", data);
     const url = this.updateUrlValue
     const options = {
       method: 'PATCH',
@@ -64,7 +53,7 @@ export default class extends Controller {
         if (data.errors) {
           window.alert(data.errors)
         } else {
-          console.log('payload quantity', data.basket_quantity)
+          console.log('payload data', data)
           this.#updateBasketItemQuantity(data.basket_quantity)
           this.#updateBasketTotalPrice(data.basket_price)
         }
