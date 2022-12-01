@@ -10,7 +10,7 @@
           <h6><%= @nb_items_in_basket %></h6>
         </div>
         <div class="show__basket__pricing">
-          <h3>Total : <span id="basket-total-price"><%= @basket.total_price %></span>€</h3>
+          <h3>Total : <span id="basket-total-price"><%= "%.2f" % (@basket.total_price) %></span>€</h3>
           <%= link_to "Valider mon panier", order_basket_path, class: "btn btn-primary" %>
         </div>
       </div>
