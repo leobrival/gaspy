@@ -1,29 +1,17 @@
-.section__validation_payment--title{
-    color: $primary;
-    text-align: center;
-    margin-bottom: 50px;
+.section__validation {
+  margin-top: 3rem;
 }
-.validation__payement_details{
-    margin-bottom: 50px;
 
-    h3{
-        color:$primary;
-    }
-}
-.payement__details_infos--site{
+.modal__validation {
+    margin-bottom: 3rem;
+    padding: 3rem;
     display: flex;
-    justify-content: space-between;
-}
-.validation__payement_close{
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    .validation__payement_close-btn{
-        background-color: $primary;
-        font-size: 20px;
-        color: white;
-        border-radius: 10px;
-        padding: 10px 10px;
-
-    }
+    height: 50vh;
+    width: 50vw;
+    text-align: center;
+    border-radius: 1rem;
+    font-size: 1.5rem;
 }
