@@ -63,15 +63,10 @@ class BasketsController < ApplicationController
   end
 
   def delivery
-    raise
   end
 
   def validation
-    
   end
-
-
-
 
   private
 
