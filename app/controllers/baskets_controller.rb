@@ -17,6 +17,7 @@ class BasketsController < ApplicationController
 
   def show
     @basket_items = @basket.basket_items
+    destroy_empty_basket_item(@basket_items)
     @products = @basket.products
     @basket_items_by_category = @basket.basket_items.includes(:product).group_by { |bi| bi.product.category }
     nb_items_in_basket = @basket_items.sum(:quantity)
@@ -57,15 +58,15 @@ class BasketsController < ApplicationController
     @basket = Basket.new
     @basket.user_id = current_user.id
     @basket.save
-    redirect_to products_path
+    redirect_to validation_basket_path
+
   end
 
   def delivery
-    raise
-
-
   end
 
+  def validation
+  end
 
   private
 
@@ -75,6 +76,14 @@ class BasketsController < ApplicationController
       sum += bi.quantity * bi.product.pricing
     end
     sum
+  end
+
+  def destroy_empty_basket_item(basket_items)
+      basket_items.each do |item|
+        if item.quantity == 0
+          item.destroy
+        end
+      end
   end
 
   def basket_params

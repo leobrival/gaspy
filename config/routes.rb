@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :delivery
       get :order
       post :order_submit
+      get :validation
     end
     resources :basket_items, only: [:show]
   end
