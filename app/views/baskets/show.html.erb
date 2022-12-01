@@ -34,7 +34,7 @@
                               <input type="number" data-calcul-tarif-target="input" name="qte" min="0" max=<%= basket_item.product.quantity %> value=<%= basket_item.quantity %> class="table__line--qte" >
                               <button class="table__line__btn--plus" data-action="click->calcul-tarif#calculTarifPlus"><i class="fa-solid fa-circle-plus"></i></button>
                           </td>
-                          <td style="width: 10%"><p class="table__line__btn--total-tarift"><span data-calcul-tarif-target="fullPrice"><%= basket_item.quantity * basket_item.product.pricing%></span>€</p></td>
+                          <td style="width: 10%"><p class="table__line__btn--total-tarift"><span data-calcul-tarif-target="fullPrice"><%= "%.2f" % (basket_item.quantity * basket_item.product.pricing) %></span>€</p></td>
                           <td><i class="fa-solid fa-trash"></i></td>
                       </tr>
                   <% end %>
