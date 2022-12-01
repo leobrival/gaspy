@@ -1,15 +1,15 @@
 .basket__header{
-    display: flex;
-    justify-content:space-between;
+  display: flex;
+  justify-content:space-between;
 }
 
 .basket__header--tarif{
-    display: flex;
-    // align-items: center;
+  display: flex;
+  // align-items: center;
 }
 .basket__header--tarif--p{
-    font-size: 28px;
-    font-weight: bolder
+  font-size: 28px;
+  font-weight: bolder
 }
 
 .section__show_basket {
@@ -21,4 +21,35 @@
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+}
+
+.table__line__btn--plus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.show__basket__table__btn {
+  display: flex;
+  flex-direction: row;
+}
+
+.table__line__btn--plus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent;
+}
+
+.table__line__btn--moins {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent;
 }

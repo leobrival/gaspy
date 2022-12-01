@@ -1,0 +1,16 @@
+.section__show__order {
+  margin-top: 3rem;
+}
+
+.payment_methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
+
+.show__order__btn--wrapper {
+  margin-top: 3rem;
+  text-align: center;
+}

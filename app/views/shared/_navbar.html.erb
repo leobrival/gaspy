@@ -6,19 +6,17 @@
       <% end %>
       <ul class="nav-action d-flex flex-row align-items-center">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "Accueil", "/" %></li>
-          <li class="nav-item"><%= link_to "Products", products_path %></li>
-          <li class="nav-item"><%= link_to "Profil", "/" %></li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "nav_img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% if current_user.current_basket.basket_status == "pending" %>
-              <%= link_to "Panier", basket_path(current_user.current_basket) %>
-              <i class="text-success fa-solid fa-basket-shopping"></i>
-            <% else %>
-              <i class="text-danger fa-solid fa-basket-shopping"></i>
+          <li class="nav__item"><%= link_to "Accueil", "/" %></li>
+          <li class="nav__item"><%= link_to "Produits", products_path %></li>
+          <li class="nav__item nav__item__basket">
+            <%= link_to basket_path(current_user.current_basket) do %>
+              <span>Panier</span><i class="fa-solid fa-basket-shopping"></i></span>
             <% end %>
+          </li>
+          <li class="nav__item dropdown">
+            <%= image_tag "https://images.unsplash.com/photo-1625019030820-e4ed970a6c95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80", class: "nav_img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navDropdown">
-              <%= link_to "Profil", "/", class: "dropdown-item" %>
+              <!--<%= link_to "Dashboard", "/", class: "dropdown-item" %>-->
               <%= link_to "Se déconnecter", "/", data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

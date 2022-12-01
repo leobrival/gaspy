@@ -32,3 +32,22 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+.nav__item {
+  &__basket {
+    & a {
+      color: $black;
+    }
+  }
+
+  & a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    & i {
+      margin-bottom: 7.5%;
+    }
+  }
+}

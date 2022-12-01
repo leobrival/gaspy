@@ -6,15 +6,13 @@ def safe_asset_path(img_name)
   # end
 end
 
-unless Rails.env.production?
-  puts "Erasing database"
-  BasketItem.destroy_all
-  Product.destroy_all
-  Basket.destroy_all
-  RelayPoint.destroy_all
-  User.destroy_all
-  puts "Database erased"
-end
+puts "Erasing database"
+BasketItem.destroy_all
+Product.destroy_all
+Basket.destroy_all
+RelayPoint.destroy_all
+User.destroy_all
+puts "Database erased"
 
 # TABLE PRODUITS
 produit = Product.new

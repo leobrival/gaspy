@@ -1,7 +1,7 @@
 <section class="section__show_basket">
   <div class="container-large">
-      <%= link_to products_path do %>
-        <span class="btn-return"><i class="fa-solid fa-arrow-left"></i>Retour au produits</span>
+      <%= link_to products_path, class: "decoration-none" do %>
+        <span class="btn-return"><i class="fa-solid fa-arrow-left"></i>Retour aux produits</span>
       <% end %>
     <div class="show__basket__wrapper">
       <div class="show__basket__header">
@@ -30,7 +30,7 @@
                           <td><%= cl_image_tag(basket_item.product.photo.key, width: 50, height: 50, crop: :fill) %></td>
                           <td style="width: 50%"><strong><%= basket_item.product.name %></strong></td>
                           <td style="width: 10%"><%= basket_item.product.pricing %> €</td>
-                          <td>
+                          <td class="show__basket__table__btn">
                               <button class="table__line__btn--moins" data-action="click->calcul-tarif#calculTarifMoins"><i class="fa-solid fa-circle-minus"></i></button>
                               <input type="number" data-calcul-tarif-target="input" name="qte" min="0" max=<%= basket_item.product.quantity %> value=<%= basket_item.quantity %> class="table__line--qte" >
                               <button class="table__line__btn--plus" data-action="click->calcul-tarif#calculTarifPlus"><i class="fa-solid fa-circle-plus"></i></button>

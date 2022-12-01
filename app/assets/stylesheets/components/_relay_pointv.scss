@@ -1,41 +1,79 @@
-.relay_point__box{
-    color: gray;
-    padding: 20px 150px
-}
-.relay_point__box--card{
-    display: flex;
-    padding: 0 150px;
-}
-.relay_point__relay{
-    border: 2px;
-    border-color: gray;
-    width: 400px;
-    height: 500px;
-    border-style: solid;
-    padding: 10px 10px;
-    margin-right: 20px;
-}
-.relay_point__relay h4{
-    background-color: $primary;
-    text-align: center;
-    color: white;
+.relay_points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
 }
 
-.relay_point__relay--img {
-    text-align: center;
-    .fa-solid{
-        font-size: 130px;
-    }
+.relay_point__relay {
+  border: 2px;
+  border-color: gray;
+  width: 400px;
+  height: 500px;
+  border-style: solid;
+  padding: 10px 10px;
 }
-.relay_point__relay--infos{
-    font-size: 18px;
-    .fa-solid{
-        font-size: 20px;
-    }
+
+.relay_point__relay__infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+
+  & p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  & i {
+    font-size: 0.75rem;
+  }
 }
-.relay_point__relay--select{
-    background-color: $primary;
-    text-align: center;
-    color: white;
-    font-size: 1.5rem;
+
+label {
+  width: 100%;
+}
+
+.card-input-element {
+  display: none;
+}
+
+.card-input {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #d8dee4;
+  border-radius: 0.5rem;
+  text-align: center;
+  height: 100%;
+
+  & h5 {
+    margin: 0;
+  }
+
+  & p {
+    margin: 0;
+  }
+
+  & i {
+    font-size: 1rem;
+  }
+}
+
+.card-input:hover {
+  cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+  border: 1px solid $blue;
+}
+
+.show__order__title--wrapper {
+  text-align: center;
+  margin: 2rem 0;
 }
