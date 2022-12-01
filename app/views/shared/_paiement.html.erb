@@ -1,32 +1,25 @@
-<div class="container">
-    <div class="paiement_address--box">
-        <h2>PAIEMENT</h2>
-        <div class="paiement_address">
-            <p class="paiement_address--user">
-                <strong>Facturation :</strong>
-                <%=current_user.first_name%> <%=current_user.last_name%> - <%=current_user.address%>
-            </p>
-            <button class="paiement_address--btn">MODIFIER</button>
-        </div>
-        <hr>
-
-        <div class="paiement_basket">
-            <details>
-                <summary class="paiement_basket--title mb-4">
-                    <span>Votre panier(nb article)</span>
-                    <span class="paiement_basket--title--ico">Voir détails <i class="fa-solid fa-chevron-down"></i> </span>
-                </summary>
-                <ol>
-                    <% @basket_items.each do |item| %>
-                    <li class="paiement_basket--items"><span><%= item.product.name %></span> <span> <%= item.quantity * item.product.pricing %> €</span></li>
-                    <% end %>
-                </ol>
-            </details>
-            <hr>
-            <div class="paiement_basket--tarif-panier">
-                <span   >TOTAL HT :</span> <span><%= @total_price %>€</span>
-            </div>
-        </div>
+<div class="paiement_address">
+    <p class="paiement_address--user">
+        <strong>Facturation :</strong>
+        <%=current_user.first_name%> <%=current_user.last_name%> - <%=current_user.address%>
+    </p>
+    <button class="btn btn-primary">Modifier</button>
+</div>
+<hr>
+<div class="paiement_basket">
+    <details>
+        <summary class="paiement_basket--title mb-4">
+            <span>Votre panier</span>
+            <span class="paiement_basket--title--ico">Voir détails <i class="fa-solid fa-chevron-down"></i> </span>
+        </summary>
+        <ol>
+            <% @basket_items.each do |item| %>
+            <li class="paiement_basket--items"><span><%= item.product.name %></span> <span> <%= item.quantity * item.product.pricing %> €</span></li>
+            <% end %>
+        </ol>
+    </details>
+    <hr>
+    <div class="paiement_basket--tarif-panier">
+        <span> Total HT :</span> <span><%= @total_price %>€</span>
     </div>
-
 </div>

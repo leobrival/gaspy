@@ -1,12 +1,13 @@
 <section class="section__show__order">
-  <div class="container-large">
+  <div class="container-small">
     <h1>Commande</h1>
-    <h2>Livraison</h2>
+    <h5 class="show__order__title--wrapper">Livraison</h5>
     <%= render "shared/relay_pointv"%>
+    <h5 class="show__order__title--wrapper">Récapitulatif</h5>
     <%= render "shared/paiement"%>
-    <h2>Paiement</h2>
+    <h5 class="show__order__title--wrapper">Paiement</h5>
     <%= render "shared/payment_method"%>
-    <div class="text-center">
+    <div class="show__order__btn--wrapper">
       <%= button_to "Valider ma commande", order_submit_basket_path, class: "btn btn-primary btn-lg" %>
     </div>
   </div>

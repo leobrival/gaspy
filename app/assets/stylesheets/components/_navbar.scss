@@ -34,6 +34,12 @@
 }
 
 .nav__item {
+  &__basket {
+    & a {
+      color: $black;
+    }
+  }
+
   & a {
     display: flex;
     flex-direction: row;
