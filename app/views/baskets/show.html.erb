@@ -36,7 +36,7 @@
                               <button class="table__line__btn--plus" data-action="click->calcul-tarif#calculTarifPlus"><i class="fa-solid fa-circle-plus"></i></button>
                           </td>
                           <td style="width: 10%"><p class="table__line__btn--total-tarift"><span data-calcul-tarif-target="fullPrice"><%= "%.2f" % (basket_item.quantity * basket_item.product.pricing) %></span>€</p></td>
-                          <td><i class="fa-solid fa-trash"></i></td>
+                          <td data-action="click->calcul-tarif#delete" style="cursor: pointer;"><i class="fa-solid fa-trash"></i></td>
                       </tr>
                   <% end %>
               </table>

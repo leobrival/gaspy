@@ -32,7 +32,6 @@ export default class extends Controller {
     this.#fetchBasketItemQuantity(-qteBack)
     this.majTarif(-qteBack)
     this.lineTarget.style.display = "none"
-
   }
 
 
