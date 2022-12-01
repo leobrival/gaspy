@@ -25,7 +25,8 @@
                           data-controller="calcul-tarif"
                           data-calcul-tarif-unit-price-value="<%= basket_item.product.pricing %>"
                           data-calcul-tarif-product-quantity-value="<%= basket_item.product.quantity %>"
-                          data-calcul-tarif-update-url-value="<%= basket_item_path(basket_item) %>">
+                          data-calcul-tarif-update-url-value="<%= basket_item_path(basket_item) %>"
+                          data-calcul-tarif-target="line">
                           <td><%= cl_image_tag(basket_item.product.photo.key, width: 50, height: 50, crop: :fill) %></td>
                           <td style="width: 50%"><strong><%= basket_item.product.name %></strong></td>
                           <td style="width: 10%"><%= basket_item.product.pricing %> €</td>
@@ -35,7 +36,7 @@
                               <button class="table__line__btn--plus" data-action="click->calcul-tarif#calculTarifPlus"><i class="fa-solid fa-circle-plus"></i></button>
                           </td>
                           <td style="width: 10%"><p class="table__line__btn--total-tarift"><span data-calcul-tarif-target="fullPrice"><%= basket_item.quantity * basket_item.product.pricing%></span>€</p></td>
-                          <td><i class="fa-solid fa-trash"></i></td>
+                          <td data-action="click->calcul-tarif#delete"><i class="fa-solid fa-trash"></i></td>
                       </tr>
                   <% end %>
               </table>

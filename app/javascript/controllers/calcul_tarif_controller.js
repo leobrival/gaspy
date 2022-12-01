@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 // import { debug } from "webpack"
 
 export default class extends Controller {
-  static targets = ["input", "moins", "plus", "fullPrice"]
+  static targets = ["input", "moins", "plus", "fullPrice","line"]
   static values = {
     unitPrice: Number,
     productQuantity: Number,
@@ -12,6 +12,9 @@ export default class extends Controller {
   calculTarifMoins() {
     this.#fetchBasketItemQuantity(-1)
     this.majTarif(-1)
+    if (this.inputTarget.value == 1){
+      this.lineTarget.style.display = "none"
+    }
   }
 
   calculTarifPlus() {
@@ -28,6 +31,8 @@ export default class extends Controller {
     const qteBack = this.inputTarget.value
     this.#fetchBasketItemQuantity(-qteBack)
     this.majTarif(-qteBack)
+    this.lineTarget.style.display = "none"
+
   }
 
 
