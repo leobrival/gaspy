@@ -49,6 +49,11 @@ h3 {
   p {
     font-size: 1.5rem;
   }
+
+  a {
+    color: $blue;
+    background-color: $light-gray;
+  }
 }
 
 .banner {
@@ -120,6 +125,10 @@ h3 {
 
   &__title {
   }
+}
+
+.btn-hero {
+  border: transparent;
 }
 
 .elements {

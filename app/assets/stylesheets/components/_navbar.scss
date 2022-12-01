@@ -32,3 +32,16 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+.nav__item {
+  & a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    & i {
+      margin-bottom: 7.5%;
+    }
+  }
+}

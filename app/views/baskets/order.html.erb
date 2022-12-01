@@ -1,7 +1,13 @@
-
-
-<%= render "shared/relay_pointv"%>
-<%= render "shared/paiement"%>
-<%= render "shared/payment_method"%>
-
-
+<section class="section__show__order">
+  <div class="container-large">
+    <h1>Commande</h1>
+    <h2>Livraison</h2>
+    <%= render "shared/relay_pointv"%>
+    <%= render "shared/paiement"%>
+    <h2>Paiement</h2>
+    <%= render "shared/payment_method"%>
+    <div class="text-center">
+      <%= button_to "Valider ma commande", order_submit_basket_path, class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+</section>

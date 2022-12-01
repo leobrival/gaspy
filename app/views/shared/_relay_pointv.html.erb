@@ -1,27 +1,16 @@
-<div class="container">
-    <div class="relay_point__box">
-        <h2>LIVRAISON </h2>
-    </div>
-
-    <div class="relay_point__box--card">
-        <% @relay_points.each do |relay| %>
-            <div class="relay_point__relay">
-                <h4>POINT RELAIS</h4>
-                <p class="relay_point__relay--img"><i class="fa-solid fa-map-location-dot"></i></p>
-                <hr>
-                <div class="relay_point__relay--infos">
-                    <p><i class="fa-solid fa-address-book"></i> <%= relay.name %><br></p>
-                    <p><i class="fa-solid fa-map"></i>  <%= relay.address %><br></p>
-                    <p><i class="fa-solid fa-phone"></i> <%= relay.phone %><br></p>
-                    <p><i class="fa-solid fa-envelope"></i> <%= relay.email %><br></p>
-                </div>
-                <hr>
-                <div class="relay_point__relay--select"><input type="radio">Sélectionnez</div>
-            </div>
-        <% end %>
-    </div>
-
-
+<div class="relay_points">
+  <% @relay_points.each do |relay| %>
+    <label>
+      <input type="radio" name="relay_point" class="card-input-element" />
+      <div class="panel-default card-input">
+        <h5 class="order__relay__point">Point relai : <%= relay.name %></h5>
+        <p class=""><i class="fa-solid fa-map-location-dot"></i></p>
+        <div class="relay_point__relay__infos">
+          <p><i class="fa-solid fa-map"></i> <%= relay.address %></p>
+          <p><i class="fa-solid fa-phone"></i> <%= relay.phone %></p>
+          <p><i class="fa-solid fa-envelope"></i> <%= relay.email %></p>
+        </div>
+      </div>
+    </label>
+  <% end %>
 </div>
-
-
