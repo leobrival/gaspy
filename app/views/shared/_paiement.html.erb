@@ -14,7 +14,7 @@
         </summary>
         <ol>
             <% @basket_items.each do |item| %>
-            <li class="paiement_basket--items"><span><%= item.product.name %></span> <span> <%= item.quantity * item.product.pricing %> €</span></li>
+            <li class="paiement_basket--items"><span><%= item.product.name %></span> <span> <%=  "%.2f" % (item.quantity * item.product.pricing) %> €</span></li>
             <% end %>
         </ol>
     </details>
