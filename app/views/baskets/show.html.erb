@@ -7,14 +7,13 @@
       <div class="show__basket__header">
         <div class="basket__header--title">
           <h1>Détail panier</h1>
-          <h6><%= @nb_items_in_basket %></h6>
+          <p class="header-3"><%= @nb_items_in_basket %></p>
         </div>
         <div class="show__basket__pricing">
-          <h3>Total : <span id="basket-total-price"><%= "%.2f" % (@basket.total_price) %></span>€</h3>
+          <h2 class="header-3">Total : <span id="basket-total-price"><%= "%.2f" % (@basket.total_price) %></span>€</h2>
           <%= link_to "Valider mon panier", order_basket_path, class: "btn btn-primary" %>
         </div>
       </div>
-
       <!-- tableau du panier-->
       <% @basket_items_by_category.each do |category, basket_items| %>
           <details open>
@@ -42,7 +41,6 @@
               </table>
           </details>
       <% end %>
-
     </div>
   </div>
 </section>

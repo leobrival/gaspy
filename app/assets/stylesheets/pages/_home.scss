@@ -9,14 +9,6 @@ h1 h2 h3 h4 h5 h6 {
   font-weight: 700;
 }
 
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2rem;
-}
-
 .hide {
   display: none;
 }
@@ -42,17 +34,17 @@ h3 {
     width: 50%;
   }
 
-  & h1 {
-    font-size: 4rem;
-  }
-
   p {
     font-size: 1.5rem;
   }
 
   a {
-    color: $blue;
+    color: $black;
     background-color: $light-gray;
+    &:hover {
+      color: $black;
+      background-color: #c2e7ff;
+    }
   }
 }
 
@@ -68,11 +60,6 @@ h3 {
     aspect-ratio: 2/1;
     border-radius: 2rem;
   }
-}
-
-.container-large {
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .paragraphe {
@@ -96,6 +83,7 @@ h3 {
 .card__home {
   background-color: #f8fafd;
   transition: 300ms;
+  height: 100%;
 
   &:hover {
     background-color: #c2e7ff;
@@ -197,7 +185,14 @@ h3 {
     justify-content: space-between;
     gap: 2rem;
     color: $black;
-    border-radius: rem;
+
+    & p {
+      font-size: 1.5rem;
+    }
+  }
+
+  & p {
+    font-size: 1.5rem;
   }
 }
 
@@ -224,9 +219,4 @@ h3 {
   &:hover {
     color: $blue;
   }
-}
-
-.divider {
-  margin: 1rem 0;
-  border-bottom: #d8dee4 1px solid;
 }
